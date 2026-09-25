@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff7f8">
+<meta name="description" content="Us & Things — cute games, tiny challenges and little moments for two.">
+<meta property="og:title" content="Us & Things 💗">
+<meta property="og:description" content="Games, questions and tiny challenges for two.">
+<meta property="og:type" content="website">
+<title>Us & Things 💗</title>
+<style>
+:root{--ink:#28252a;--muted:#756f76;--pink:#f6c9d6;--rose:#b85d79;--cream:#fffaf7;--card:#fff;--line:#eee3e6}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink);background:linear-gradient(180deg,#fff7f8 0,#fffdfb 48%,#f8f5f1 100%);line-height:1.5}
+nav{max-width:1100px;margin:auto;padding:20px 22px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:-.5px}.logo span{color:var(--rose)}
+nav a{color:var(--ink);text-decoration:none;margin-left:18px;font-size:14px}
+.hero{max-width:1100px;margin:35px auto 0;padding:45px 22px 65px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:11px;color:var(--rose);font-weight:800}
+h1{font-size:clamp(42px,7vw,78px);line-height:.98;letter-spacing:-4px;margin:14px 0 20px}
+.hero p{font-size:18px;color:var(--muted);max-width:580px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+button,.btn{border:0;border-radius:999px;padding:13px 19px;font-weight:750;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:var(--ink);color:white}.soft{background:#f7e1e7;color:#8f405b}
+.hero-card{background:white;border:1px solid var(--line);border-radius:30px;padding:30px;box-shadow:0 18px 50px #6b44520e;transform:rotate(2deg)}
+.heart{font-size:55px}.quote{font-size:25px;font-weight:750;line-height:1.2;margin:15px 0}
+section{max-width:1100px;margin:auto;padding:65px 22px}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:25px}h2{font-size:34px;letter-spacing:-1.5px;margin:0}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;min-height:190px;display:flex;flex-direction:column}.icon{font-size:28px}.card h3{margin:13px 0 6px}.card p{color:var(--muted);margin:0 0 18px}.card button{margin-top:auto;width:max-content}
+.panel{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;max-width:760px;margin:auto;box-shadow:0 15px 45px #6b44520b}.question{font-size:27px;font-weight:800;line-height:1.2;margin:18px 0 22px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answers button{background:#faf5f6;border:1px solid var(--line);text-align:left}.answers button:hover{background:#f7e1e7}
+.result{margin-top:20px;padding:18px;border-radius:18px;background:#fff4f7;display:none}
+.letter{background:#fff;border:1px dashed #d8b9c2;border-radius:20px;padding:22px;white-space:pre-wrap;min-height:130px}
+input,textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px;margin:6px 0 12px;font:inherit;background:#fff}
+footer{border-top:1px solid var(--line);padding:30px 22px;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:25px}.hero-card{transform:none}.grid{grid-template-columns:1fr}.answers{grid-template-columns:1fr}h1{letter-spacing:-2.5px}.section-head{display:block}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Us <span>&</span> Things</div><div><a href="#games">Games</a><a href="#letters">Letters</a></div></nav>
+
+<header class="hero">
+<div>
+<div class="eyebrow">little moments, made together</div>
+<h1>Something cute to do, whenever.</h1>
+<p>Games, tiny challenges and thoughtful questions for two. No awkward planning. Just pick one and start.</p>
+<div class="buttons"><a class="btn primary" href="#games">Play something →</a><a class="btn soft" href="#letters">Write a little letter</a></div>
+</div>
+<div class="hero-card"><div class="heart">♡</div><div class="quote">“The small things become the big memories.”</div><div class="muted">Save this page. Send it to your person. Come back whenever you need an idea.</div></div>
+</header>
+
+<section id="games">
+<div class="section-head"><div><div class="eyebrow">choose your mood</div><h2>Pick a little game.</h2></div><div class="muted">No account. No pressure.</div></div>
+<div class="grid">
+<article class="card"><div class="icon">🫶</div><h3>How Well Do You Know Me?</h3><p>Answer a few tiny questions and see how much you remember.</p><button class="primary" onclick="startQuiz()">Start game</button></article>
+<article class="card"><div class="icon">✨</div><h3>Tonight's Question</h3><p>One question that can turn a normal conversation into a good one.</p><button class="soft" onclick="newQuestion()">Give me one</button></article>
+<article class="card"><div class="icon">🎲</div><h3>15-Minute Challenge</h3><p>Pick a tiny challenge. Finish it before the timer in your head runs out.</p><button class="soft" onclick="challenge()">Surprise us</button></article>
+</div>
+</section>
+
+<section id="play">
+<div class="panel">
+<div class="eyebrow">game corner</div><div id="gameArea"><h2>Ready?</h2><p class="muted">Choose a game above and your screen will appear here.</p></div>
+</div>
+</section>
+
+<section id="letters">
+<div class="section-head"><div><div class="eyebrow">activity letters</div><h2>Open when…</h2></div></div>
+<div class="grid">
+<div class="card"><h3>Open when you need a laugh</h3><p>Write something ridiculous, sweet, or both.</p><button class="soft" onclick="letter('laugh')">Create</button></div>
+<div class="card"><h3>Open when you miss me</h3><p>A tiny message for the days that feel a little longer.</p><button class="soft" onclick="letter('miss')">Create</button></div>
+<div class="card"><h3>Open after a rough day</h3><p>A reminder that one bad day doesn't get to define everything.</p><button class="soft" onclick="letter('rough')">Create</button></div>
+</div>
+<div id="letterBox" style="margin-top:25px"></div>
+</section>
+
+<footer>Us & Things · made for little moments · © <span id="year"></span></footer>
+<script>
+const questions=[
+["Who would survive longer without their phone?","You 😭","Me 😭"],
+["Who is more likely to say “I'm not hungry” and then steal food?","Me","You"],
+["Who takes longer to choose what to watch?","You","Me"],
+["Who is more likely to remember a tiny detail from months ago?","Me","You"],
+["Who would plan a whole imaginary trip at 2 a.m.?","You","Both of us"]
+];
+const tonight=[
+"What is one tiny thing I do that always makes you smile?",
+"If we had one completely free day tomorrow, what would we do?",
+"What is a memory you would happily relive?",
+"What is something new you want us to try together?",
+"What is one thing you think we understand about each other really well?"
+];
+const challenges=[
+"Take turns choosing a song. No judging the other's choice.",
+"Each person has 60 seconds to draw the other person as a cartoon.",
+"Find three things around you that remind you of each other.",
+"Make up the most dramatic movie title for your ordinary day.",
+"Take turns asking “why?” five times about one harmless opinion.",
+"Describe your ideal tiny date using only five words."
+];
+function scrollPlay(){document.querySelector("#play").scrollIntoView({behavior:"smooth"})}
+function startQuiz(){let i=0,score=0;const a=document.querySelector("#gameArea");function show(){if(i>=questions.length){a.innerHTML=`<h2>Done 💗</h2><p class="question">Your answers: ${score}/${questions.length}</p><p class="muted">There is no wrong score. The fun part is comparing answers together.</p><button class="primary" onclick="startQuiz()">Play again</button>`;return}let q=questions[i];a.innerHTML=`<div class="muted">Question ${i+1} of ${questions.length}</div><div class="question">${q[0]}</div><div class="answers"><button onclick="ans()">${q[1]}</button><button onclick="ans()">${q[2]}</button></div>`}window.ans=()=>{score++;i++;show()};show();scrollPlay()}
+function newQuestion(){const q=tonight[Math.floor(Math.random()*tonight.length)];document.querySelector("#gameArea").innerHTML=`<div class="eyebrow">tonight's question</div><div class="question">“${q}”</div><button class="soft" onclick="newQuestion()">Another one</button>`;scrollPlay()}
+function challenge(){const q=challenges[Math.floor(Math.random()*challenges.length)];document.querySelector("#gameArea").innerHTML=`<div class="eyebrow">15-minute challenge</div><div class="question">${q}</div><button class="soft" onclick="challenge()">Another challenge</button>`;scrollPlay()}
+function letter(type){const titles={laugh:"Open when you need a laugh",miss:"Open when you miss me",rough:"Open after a rough day"};document.querySelector("#letterBox").innerHTML=`<div class="panel"><h3>${titles[type]}</h3><label>From</label><input id="from" placeholder="Your name"><label>To</label><input id="to" placeholder="Their name"><label>Your message</label><textarea id="msg" rows="7" placeholder="Write something only they would understand…"></textarea><button class="primary" onclick="makeLetter('${type}')">Preview letter</button><div id="letterPreview" style="margin-top:18px"></div></div>`;document.querySelector("#letterBox").scrollIntoView({behavior:"smooth"})}
+function makeLetter(type){const from=document.querySelector("#from").value||"Me";const to=document.querySelector("#to").value||"You";const msg=document.querySelector("#msg").value||"I hope you remember that you are loved, even on the ordinary days.";document.querySelector("#letterPreview").innerHTML=`<div class="letter"><strong>For ${to},</strong><br><br>${msg}<br><br>— ${from}</div><br><button class="soft" onclick="window.print()">Print / Save as PDF</button>`}
+document.querySelector("#year").textContent=new Date().getFullYear();
+</script>
+</body></html>
